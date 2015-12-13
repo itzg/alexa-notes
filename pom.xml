@@ -77,48 +77,48 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.3.8</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <baseImage>java:8-jre</baseImage>
-                    <imageName>alexa-note-taker</imageName>
-                    <maintainer>itzg</maintainer>
-                    <workdir>/data</workdir>
-                    <env><KEY_STORE_PW>SET_AT_RUN</KEY_STORE_PW></env>
-                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
-                    <cmd>["--server.ssl.key-store=/certs/alexa-keystore.jks","--server.ssl.key-store-password=$KEY_STORE_PW","--logging.file=/data/${project.artifactId}.log"]</cmd>
-                    <exposes>
-                        <expose>443</expose>
-                    </exposes>
-                    <resources>
-                        <resource>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
         </plugins>
 
     </build>
 
-    <repositories>
-        <repository>
-            <id>vultr.itzg.me</id>
-            <name>vultr.itzg.me-releases</name>
-            <url>http://vultr.itzg.me:8081/artifactory/ext-release-local</url>
-        </repository>
-
-    </repositories>
-
+    <profiles>
+        <profile>
+            <id>docker</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>0.3.8</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <baseImage>java:8-jre</baseImage>
+                            <imageName>alexa-note-taker</imageName>
+                            <maintainer>itzg</maintainer>
+                            <workdir>/data</workdir>
+                            <env><KEY_STORE_PW>SET_AT_RUN</KEY_STORE_PW></env>
+                            <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                            <cmd>["--server.ssl.key-store=/certs/alexa-keystore.jks","--server.ssl.key-store-password=$KEY_STORE_PW","--logging.file=/data/${project.artifactId}.log"]</cmd>
+                            <exposes>
+                                <expose>443</expose>
+                            </exposes>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.directory}</directory>
+                                    <include>${project.build.finalName}.jar</include>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
