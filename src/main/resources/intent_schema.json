@@ -1,0 +1,29 @@
+{
+  "intents": [
+    {
+      "intent": "TookMedicine",
+      "slots": [
+        {
+          "name": "typeOfMedicine",
+          "type": "TYPE_OF_MEDICINE"
+        },
+        {
+          "name": "name",
+          "type": "NAME"
+        },
+        {
+          "name": "timeWhen",
+          "type": "AMAZON.TIME"
+        },
+        {
+          "name": "dateWhen",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "takeNextIn",
+          "type": "AMAZON.DURATION"
+        }
+      ]
+    }
+  ]
+}
