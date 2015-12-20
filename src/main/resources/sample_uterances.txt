@@ -1,0 +1,22 @@
+tookMedicine took medicine
+tookMedicine took {typeOfMedicine} medicine
+tookMedicine {name} took {typeOfMedicine} medicine
+tookMedicine took {typeOfMedicine} medicine
+tookMedicine {name} took {typeOfMedicine} medicine at {timeWhen}
+tookMedicine {name} took {typeOfMedicine} medicine and needs more in {takeNextIn}
+tookMedicine took {typeOfMedicine} medicine and needs more in {takeNextIn}
+tookMedicine {name} took {typeOfMedicine} medicine at {timeWhen} and needs more in {takeNextIn}
+recordTheTime record the time
+recordTheTime note the time
+arrived I have arrived
+arrived just got home
+arrived I'm here
+arrived I am here
+arrived I'm home
+arrived I am home
+arrived I'm back
+arrived I am back
+leaving I'm about to leave
+leaving I'm leaving
+leaving I'm outta here
+leaving I'm departing

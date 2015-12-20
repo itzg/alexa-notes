@@ -1,0 +1,13 @@
+[Unit]
+Description=Alexa Note Taker
+After=syslog.target
+
+[Service]
+# Needs access to port 443
+User=root
+ExecStart=/var/@project.artifactId@/@project.build.finalName@.jar
+WorkingDirectory=/var/@project.artifactId@
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

@@ -1,7 +1,7 @@
 {
   "intents": [
     {
-      "intent": "TookMedicine",
+      "intent": "tookMedicine",
       "slots": [
         {
           "name": "typeOfMedicine",
@@ -9,7 +9,7 @@
         },
         {
           "name": "name",
-          "type": "NAME"
+          "type": "AMAZON.US_FIRST_NAME"
         },
         {
           "name": "timeWhen",
@@ -24,6 +24,18 @@
           "type": "AMAZON.DURATION"
         }
       ]
+    },
+    {
+      "intent": "recordTheTime",
+      "slots": []
+    },
+    {
+      "intent": "arrived",
+      "slots": []
+    },
+    {
+      "intent": "leaving",
+      "slots": []
     }
   ]
 }
