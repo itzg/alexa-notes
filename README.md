@@ -14,6 +14,11 @@ When invoking a `package` or `install`, specify the Docker build host
 
     -DdockerHost=...
     
+You will need to explicitly provide the [Alexa Skills Kit SDK](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit). One way is to download it, unzip it locally, and specify
+the `file://` URL via
+
+    -Dalexa-skills-kit.repo-url=...
+    
 ## Docker run-time
 
 Declare the environment variables `KEY_STORE_PW`. *NOTE:* it assumes a Java keystore file is pre-configured at
